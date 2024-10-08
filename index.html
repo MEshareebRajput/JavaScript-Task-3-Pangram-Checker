@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Task 3 (Pangram Checker)</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Task 3: Pangram Checker (JavaScript)</h1>
+    <div class="main-content">
+        <img src="./image/Muhammad Eshareeb.png" alt="Muhammad Eshareeb" class="profile-image">
+        <p class="personal-info">
+            <strong>Muhammad Eshareeb</strong><br>
+            <a href="https://www.linkedin.com/in/muhammadeshareeb986/" target="_blank">LinkedIn</a><br>
+            <a href="mailto:muhammadeshareeb986@gmail.com">muhammadeshareeb986@gmail.com</a><br>
+            03282300151<br>
+        </p>
+
+        <h2>Understanding Pangram Checker</h2>
+        <p>
+            A pangram is a sentence that contains every letter of the alphabet at least once. In this task, we reverse a string of text and check if it is a pangram.
+        </p>
+
+        <h3>JavaScript Implementation</h3>
+        <p>
+            Below is the JavaScript code that checks whether a given string is a pangram:
+        </p>
+        <pre><code>
+let sentence = "The quick brown fox jumps over the lazy dog";
+let reversedArray = sentence.split('').reverse().join('');
+
+function isPangram(str) {
+    let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    str = str.toLowerCase();
+    return alphabet.split('').every(letter => str.includes(letter));
+}
+
+console.log(isPangram(reversedArray));  // Outputs: true
+        </code></pre>
+
+        <h2>Results</h2>
+        <div id="results">
+            <h3>Original Sentence: The quick brown fox jumps over the lazy dog</h3>
+            <p>Reversed Sentence: god yzal eht revo spmuj xof nworb kciuq ehT</p>
+            <p>Pangram Check Result: True (This sentence is a pangram)</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Stay connected and keep learning!</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
