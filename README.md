@@ -1,70 +1,86 @@
-# OD - Your Virtual Assistant 🤖
+# JavaScript Task 3: Pangram Checker - Array Reversal 🔄
 
-Welcome to the **OD Virtual Assistant** repository! 🎉 This project showcases a sophisticated virtual assistant designed for interactive user engagement, allowing users to communicate effortlessly through voice commands.
+Welcome to the **JavaScript Task 3: Pangram Checker with Array Reversal** repository! 🎉 This project demonstrates a JavaScript implementation for checking if a string is a pangram and reversing the array of letters to validate its structure.
 
 ## Project Overview 📚
 
 This repository contains:
-- **HTML** and **CSS** structure for the user interface implementation 🌐
-- **JavaScript** logic for processing voice commands and providing responses 🔍
-- A feature set that allows users to open websites and check the time/date 🕒
+- **HTML** and **CSS** structure for the UI implementation 🌐
+- **JavaScript** logic for checking if a given string is a pangram (a sentence containing every letter of the alphabet at least once) 🔍
+- A function that reverses the array of letters to showcase a deeper understanding of array manipulation in JavaScript 🤔
 
-## Understanding OD Virtual Assistant 🤔
+## Understanding Pangram and Array Reversal 🔄
 
-**OD** is designed to assist users by executing commands through voice interaction. It can respond to greetings, open websites, and provide the current time and date. 
+A **pangram** is a sentence that contains every letter of the alphabet at least once. Examples include:
+- "The quick brown fox jumps over the lazy dog" 🦊🐕
+  
+In this task, we:
+1. Convert the string into an array of characters.
+2. Check if each letter of the alphabet is present.
+3. Reverse the array for added complexity.
 
-### How OD Works 🔄
+### How Pangram Check Works 🔍
 
-The virtual assistant follows these steps:
-1. Listens for user commands through a voice activation button.
-2. Processes the commands and responds accordingly.
-3. Utilizes JavaScript functions to perform various tasks, like opening websites and providing time/date information.
+The pangram checker follows these steps:
+1. Convert the string to lowercase and remove any non-letter characters.
+2. Create a set to keep track of unique letters in the string.
+3. Verify if the set contains all 26 letters of the alphabet.
 
-### Example Commands 🗣️
+### How Array Reversal Works 🔁
 
-Here are some example commands you can use with OD:
-- **Greetings**: 
-  - "hello"
-  - "how are you"
-- **Opening Websites**: 
-  - "open google"
-  - "open youtube"
-- **Time and Date**: 
-  - "time"
-  - "date"
+Once the pangram is validated, we:
+1. Reverse the array of characters.
+2. Display both the original and reversed arrays in the results section.
 
 ## JavaScript Implementation 💻
 
-Here’s a core JavaScript function for processing user commands:
+Here’s the core JavaScript function for checking a pangram and reversing the array:
 
 ```javascript
-function handleCommand(command) {
-    // Process user command and respond accordingly
-    switch(command.toLowerCase()) {
-        case "hello":
-            return "Hello! I'm OD, your virtual assistant.";
-        case "how are you":
-            return "I am OD, I am your virtual assistant created by Muhammad Eshareeb Rajput.";
-        case "time":
-            return new Date().toLocaleTimeString();
-        case "date":
-            return new Date().toLocaleDateString();
-        // Additional cases for opening websites...
-        default:
-            return "I'm sorry, I didn't understand that.";
-    }
+function isPangram(str) {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
+    let input = str.toLowerCase().replace(/[^a-z]/g, '').split('');
+    let uniqueLetters = [...new Set(input)];
+    
+    return alphabet.every(letter => uniqueLetters.includes(letter));
+}
+
+function reverseArray(arr) {
+    return arr.reverse();
 }
 
 // Example usage:
-console.log(handleCommand("hello")); // "Hello! I'm OD, your virtual assistant."
+let sentence = "The quick brown fox jumps over the lazy dog";
+console.log(isPangram(sentence)); // true
+
+let reversedArray = reverseArray(sentence.split(''));
+console.log(reversedArray); // Reversed array of the sentence characters
+```
+
+## Examples 📝
+
+Here's an example demonstrating the pangram checker and array reversal:
+
+```javascript
+let sentence = "The quick brown fox jumps over the lazy dog";
+console.log(isPangram(sentence)); // true
+
+let reversedArray = reverseArray(sentence.split(''));
+console.log(reversedArray); // Reversed array of the sentence characters
 ```
 
 ## Usage Instructions 🛠️
 
-To run the OD virtual assistant:
+To run the pangram checker and array reversal:
 1. Include the JavaScript file in your HTML structure.
-2. Click the voice activation button to start interacting with OD.
-3. Speak any command, and OD will respond accordingly.
+2. Pass any string to the `isPangram()` function to verify if it is a pangram.
+3. Reverse the array of characters using the `reverseArray()` function.
+
+## Additional Resources 📚
+
+For more insights into JavaScript arrays and pangrams:
+- [MDN Web Docs: JavaScript Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) 📖
+- [MDN Web Docs: String Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) 📖
 
 ## Contact Information 📞
 
